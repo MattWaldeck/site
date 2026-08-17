@@ -188,6 +188,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 60;
+  isolation: isolate;
   background: var(--green-deep);
   border-bottom: 1px solid rgba(232, 185, 35, 0.25);
   transition: box-shadow 0.25s ease;
@@ -197,6 +198,7 @@ header.scrolled {
 }
 .nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 14px clamp(20px, 4vw, 48px);
@@ -1109,19 +1111,19 @@ section {
 .branch-card dl {
   margin: 0;
   display: grid;
-  gap: 9px;
+  gap: 12px;
 }
 .branch-card dl div {
-  display: flex;
+  display: grid;
+  grid-template-columns: 68px 1fr;
   gap: 8px;
   font-size: 0.88rem;
   color: var(--steel);
+  line-height: 1.5;
 }
 .branch-card dl b {
   color: var(--ink);
   font-weight: 600;
-  min-width: 64px;
-  flex: none;
 }
 
 .quote-form {
@@ -1299,8 +1301,22 @@ footer {
   .route-list {
     grid-template-columns: 1fr;
   }
+  .routes {
+    background-image: none;
+  }
+  .routes-inner {
+    max-width: none;
+  }
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .branch-card {
+    padding: 24px 22px;
+  }
+  .branch-card dl div {
+    grid-template-columns: 1fr;
+    gap: 3px;
   }
   .form-grid {
     grid-template-columns: 1fr;
@@ -1310,20 +1326,19 @@ footer {
   }
   .menu-toggle {
     display: inline-flex;
+    order: 1;
   }
   .header-ctas {
     display: none;
   }
   nav.links {
     display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    order: 2;
+    flex-basis: 100%;
+    width: 100%;
     flex-direction: column;
     gap: 0;
     background: var(--green-deep);
-    border-bottom: 1px solid rgba(232, 185, 35, 0.25);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -1335,6 +1350,7 @@ footer {
     max-height: 70vh;
     opacity: 1;
     overflow-y: auto;
+    border-top: 1px solid rgba(232, 185, 35, 0.15);
   }
   nav.links a {
     padding: 16px clamp(20px, 4vw, 48px);
