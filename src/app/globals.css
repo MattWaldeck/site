@@ -1594,3 +1594,54 @@ footer {
   font-size: 0.85rem;
   color: var(--steel);
 }
+
+/* ---------- faq ---------- */
+.faq {
+  background: var(--paper);
+}
+.faq-list {
+  max-width: 720px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 4px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.faq-chevron {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--gold-deep);
+  transition: transform 0.2s ease;
+}
+:root[data-theme="dark"] .faq-chevron {
+  color: var(--gold-bright);
+}
+@media (prefers-color-scheme: dark) {
+  .faq-chevron {
+    color: var(--gold-bright);
+  }
+}
+.faq-chevron.open {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  margin: 0 0 20px;
+  padding-right: 30px;
+  color: var(--steel);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}

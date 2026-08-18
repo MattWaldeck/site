@@ -10,6 +10,7 @@ import { Premises } from "@/components/Premises";
 import { RoadSection } from "@/components/RoadSection";
 import { Routes } from "@/components/Routes";
 import { WhyChoose } from "@/components/WhyChoose";
+import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
@@ -30,6 +31,7 @@ export default function Home() {
         <Premises />
         <RoadSection />
         <Routes />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
