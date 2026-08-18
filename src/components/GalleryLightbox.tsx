@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Photo = {
   src: string;
@@ -9,6 +9,28 @@ type Photo = {
 
 export function GalleryLightbox({ photos }: { photos: Photo[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const prevButtonRef = useRef<HTMLButtonElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Move focus to close button when lightbox opens
+  useEffect(() => {
+    if (openIndex !== null && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [openIndex]);
+
+  // Return focus to thumbnail when lightbox closes
+  useEffect(() => {
+    if (openIndex === null && clickedIndex !== null) {
+      const thumbnail = thumbnailRefs.current[clickedIndex];
+      if (thumbnail) {
+        thumbnail.focus();
+      }
+    }
+  }, [openIndex, clickedIndex]);
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -16,6 +38,27 @@ export function GalleryLightbox({ photos }: { photos: Photo[] }) {
       if (e.key === "Escape") setOpenIndex(null);
       if (e.key === "ArrowRight") setOpenIndex((i) => (i === null ? i : (i + 1) % photos.length));
       if (e.key === "ArrowLeft") setOpenIndex((i) => (i === null ? i : (i - 1 + photos.length) % photos.length));
+
+      // Focus trap for Tab key
+      if (e.key === "Tab") {
+        const focusableElements = [closeButtonRef.current, prevButtonRef.current, nextButtonRef.current].filter(Boolean);
+        if (focusableElements.length === 0) return;
+
+        const currentFocus = document.activeElement;
+        const currentIndex = focusableElements.indexOf(currentFocus as HTMLButtonElement);
+
+        if (e.shiftKey) {
+          // Shift+Tab: move to previous element
+          e.preventDefault();
+          const nextIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
+          (focusableElements[nextIndex] as HTMLButtonElement).focus();
+        } else {
+          // Tab: move to next element
+          e.preventDefault();
+          const nextIndex = currentIndex < 0 || currentIndex >= focusableElements.length - 1 ? 0 : currentIndex + 1;
+          (focusableElements[nextIndex] as HTMLButtonElement).focus();
+        }
+      }
     }
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -27,9 +70,15 @@ export function GalleryLightbox({ photos }: { photos: Photo[] }) {
         {photos.map((photo, i) => (
           <button
             key={photo.src}
+            ref={(el) => {
+              thumbnailRefs.current[i] = el;
+            }}
             type="button"
             className="gallery-cell"
-            onClick={() => setOpenIndex(i)}
+            onClick={() => {
+              setClickedIndex(i);
+              setOpenIndex(i);
+            }}
             aria-label={`Open photo: ${photo.alt}`}
           >
             <img src={photo.src} alt={photo.alt} loading="lazy" />
@@ -46,6 +95,7 @@ export function GalleryLightbox({ photos }: { photos: Photo[] }) {
           onClick={() => setOpenIndex(null)}
         >
           <button
+            ref={closeButtonRef}
             type="button"
             className="lightbox-close"
             aria-label="Close"
@@ -57,6 +107,7 @@ export function GalleryLightbox({ photos }: { photos: Photo[] }) {
             </svg>
           </button>
           <button
+            ref={prevButtonRef}
             type="button"
             className="lightbox-nav prev"
             aria-label="Previous photo"
@@ -76,6 +127,7 @@ export function GalleryLightbox({ photos }: { photos: Photo[] }) {
             onClick={(e) => e.stopPropagation()}
           />
           <button
+            ref={nextButtonRef}
             type="button"
             className="lightbox-nav next"
             aria-label="Next photo"

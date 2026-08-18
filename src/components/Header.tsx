@@ -43,7 +43,7 @@ export function Header() {
   return (
     <header className={[scrolled && "scrolled", navOpen && "nav-open"].filter(Boolean).join(" ")}>
       <div className="nav">
-        <a className="brand" href="#top">
+        <a className="brand" href="/#top">
           <img
             className="logo-full"
             src="/assets/logo-full.jpg"
@@ -63,7 +63,7 @@ export function Header() {
           <li className="nav-cta">
             <a
               className="btn btn-gold"
-              href="#contact"
+              href="/#contact"
               onClick={() => setNavOpen(false)}
             >
               Request a Quote
@@ -77,7 +77,7 @@ export function Header() {
             </svg>
             Call Now
           </a>
-          <a className="btn btn-gold" href="#contact">
+          <a className="btn btn-gold" href="/#contact">
             Request a Quote
           </a>
         </div>

@@ -14,7 +14,7 @@ export function Footer() {
     <footer>
       <div className="wrap">
         <div className="foot-top">
-          <a className="brand" href="#top">
+          <a className="brand" href="/#top">
             <img
               className="logo-full"
               src="/assets/logo-full.jpg"
