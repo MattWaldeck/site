@@ -14,12 +14,16 @@ export function GalleryLightbox({ photos }: { photos: Photo[] }) {
   const prevButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const wasOpenRef = useRef(false);
 
-  // Move focus to close button when lightbox opens
+  // Move focus to close button only on the closed -> open transition,
+  // not on every index change while already open (arrow keys / prev/next).
   useEffect(() => {
-    if (openIndex !== null && closeButtonRef.current) {
+    const isOpen = openIndex !== null;
+    if (isOpen && !wasOpenRef.current && closeButtonRef.current) {
       closeButtonRef.current.focus();
     }
+    wasOpenRef.current = isOpen;
   }, [openIndex]);
 
   // Return focus to thumbnail when lightbox closes

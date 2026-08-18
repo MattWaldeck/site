@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { CONTACT } from "@/lib/contact";
 
 const NAV_LINKS = [
@@ -43,7 +44,7 @@ export function Header() {
   return (
     <header className={[scrolled && "scrolled", navOpen && "nav-open"].filter(Boolean).join(" ")}>
       <div className="nav">
-        <a className="brand" href="/#top">
+        <Link className="brand" href="/#top">
           <img
             className="logo-full"
             src="/assets/logo-full.jpg"
@@ -51,7 +52,7 @@ export function Header() {
             width={1600}
             height={530}
           />
-        </a>
+        </Link>
         <ul className="links" id="site-nav">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
@@ -61,13 +62,13 @@ export function Header() {
             </li>
           ))}
           <li className="nav-cta">
-            <a
+            <Link
               className="btn btn-gold"
               href="/#contact"
               onClick={() => setNavOpen(false)}
             >
               Request a Quote
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="header-ctas">
@@ -77,9 +78,9 @@ export function Header() {
             </svg>
             Call Now
           </a>
-          <a className="btn btn-gold" href="/#contact">
+          <Link className="btn btn-gold" href="/#contact">
             Request a Quote
-          </a>
+          </Link>
         </div>
         <button
           className="menu-toggle"

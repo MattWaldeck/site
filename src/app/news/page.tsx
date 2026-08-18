@@ -20,7 +20,7 @@ export default function NewsPage() {
           <div className="wrap">
             <Reveal className="section-head">
               <p className="eyebrow">News</p>
-              <h2>Stories from the road</h2>
+              <h1>Stories from the road</h1>
             </Reveal>
             <RevealGroup className="news-grid">
               {NEWS_ARTICLES.map((article) => (

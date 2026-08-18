@@ -34,12 +34,12 @@ const FAQS: QA[] = [
   {
     question: "Is my cargo insured in transit?",
     answer:
-      "RB & Son arranges Goods-in-Transit insurance as standard; customers who want cover to their goods' full value should also carry their own all-risk insurance — ask your branch for details.",
+      "RB & Son arranges Goods-in-Transit insurance, but cover details vary — ask your branch what's in place for your shipment. If you want your goods insured to their full value, we'd recommend also carrying your own all-risk insurance.",
   },
   {
     question: "How do I pay, and what are the terms?",
     answer:
-      "Standard terms are 30 days from invoice date unless otherwise agreed in writing. Full terms and conditions are available as a PDF download in the footer.",
+      "Payment terms are agreed with each customer and set out in full in our Terms & Conditions — see the PDF link in the footer for details.",
   },
 ];
 

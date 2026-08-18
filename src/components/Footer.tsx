@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const NAV_LINKS = [
   { href: "/#services", label: "Services" },
   { href: "/#fleet", label: "Fleet" },
@@ -14,7 +16,7 @@ export function Footer() {
     <footer>
       <div className="wrap">
         <div className="foot-top">
-          <a className="brand" href="/#top">
+          <Link className="brand" href="/#top">
             <img
               className="logo-full"
               src="/assets/logo-full.jpg"
@@ -23,7 +25,7 @@ export function Footer() {
               height={530}
               style={{ height: 34 }}
             />
-          </a>
+          </Link>
           <ul className="foot-nav">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>

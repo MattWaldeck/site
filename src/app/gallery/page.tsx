@@ -48,7 +48,7 @@ export default function GalleryPage() {
           <div className="wrap">
             <Reveal className="section-head">
               <p className="eyebrow">Gallery</p>
-              <h2>The fleet, the crew, the road</h2>
+              <h1>The fleet, the crew, the road</h1>
               <p>Twenty-five years of freight, in photos.</p>
             </Reveal>
             <GalleryLightbox photos={GALLERY_PHOTOS} />

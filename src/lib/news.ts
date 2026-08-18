@@ -8,6 +8,7 @@ export type NewsArticle = {
   coverImageIsIllustrative?: boolean;
   body: string[];
   quote?: { text: string; attribution: string };
+  photos?: { src: string; alt: string }[];
 };
 
 export const NEWS_ARTICLES: NewsArticle[] = [
@@ -21,6 +22,12 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     coverImageAlt: "RB & Son team loading aid parcels during COVID-19 Level 5 lockdown",
     body: [
       "South Africa entered COVID-19 Level 5 lockdown in 2020, and RB & Son Transport (Cape) assisted in delivering parcels to various centres to help the underprivileged and poor.",
+    ],
+    photos: [
+      { src: "/assets/news/news-parcels-1.jpg", alt: "RB & Son team loading aid parcels onto a truck" },
+      { src: "/assets/news/news-parcels-2.jpg", alt: "Bags of rice, sugar and other pantry staples packed into aid parcels" },
+      { src: "/assets/news/news-parcels-3.jpg", alt: "A truckload of packed parcels ready for delivery, with volunteers alongside" },
+      { src: "/assets/news/news-parcels-4.jpg", alt: "Rice, sugar, coffee and toiletries stacked indoors ready for parcel packing" },
     ],
   },
   {
@@ -64,6 +71,14 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     body: [
       "We at RB & Son pride ourselves on our exclusive cargo and dangerous goods delivery service, nationwide. With branches in Cape Town and Port Elizabeth, we strive to give the best service possible.",
       "For warehousing, distribution, containerisation, or any kind of transportation — give us a call.",
+    ],
+    photos: [
+      { src: "/assets/news/news-dangerous-goods-1.jpg", alt: "RB & Son truck loaded with dangerous goods cargo" },
+      { src: "/assets/news/news-dangerous-goods-2.jpg", alt: "An RB & Son trailer marked 'Dangerous' being loaded with palletised cargo at dawn" },
+      { src: "/assets/news/news-dangerous-goods-3.jpg", alt: "Palletised hazardous cargo with warning labels staged beside an RB & Son trailer and van" },
+      { src: "/assets/news/news-dangerous-goods-4.jpg", alt: "Side view of an RB & Son curtain-side trailer with tarpaulins laid out alongside" },
+      { src: "/assets/news/news-dangerous-goods-5.jpg", alt: "RB & Son trailer displaying no-smoking and hazard warning stickers" },
+      { src: "/assets/news/news-dangerous-goods-6.jpg", alt: "Volvo truck being loaded with palletised cargo by forklift at the RB & Son depot" },
     ],
   },
 ];

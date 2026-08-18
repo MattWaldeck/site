@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
@@ -57,11 +58,20 @@ export default async function NewsArticlePage({
                   <cite>— {article.quote.attribution}</cite>
                 </blockquote>
               )}
+              {article.photos && (
+                <div className="news-photo-grid">
+                  {article.photos.map((photo) => (
+                    <div className="news-photo-grid-cell" key={photo.src}>
+                      <img src={photo.src} alt={photo.alt} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              )}
             </Reveal>
             <Reveal>
-              <a className="btn btn-outline-gold" href="/news">
+              <Link className="btn btn-outline-gold" href="/news">
                 ← Back to news
-              </a>
+              </Link>
             </Reveal>
           </div>
         </article>
