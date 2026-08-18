@@ -39,7 +39,7 @@ const FAQS: QA[] = [
   {
     question: "How do I pay, and what are the terms?",
     answer:
-      "Payment terms are agreed with each customer and set out in full in our Terms & Conditions — see the PDF link in the footer for details.",
+      "Standard terms are 30 days from invoice date unless otherwise agreed in writing — full details are in our Terms & Conditions (PDF link in the footer).",
   },
 ];
 
