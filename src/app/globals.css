@@ -1270,6 +1270,25 @@ footer {
   font-size: 0.76rem;
   color: #7e9179;
 }
+.foot-terms {
+  color: var(--gold-bright);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+.foot-terms:hover {
+  text-decoration: underline;
+}
+.form-terms-note {
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: var(--steel);
+}
+.form-terms-note a {
+  color: var(--gold-deep);
+}
+:root[data-theme="dark"] .form-terms-note a {
+  color: var(--gold-bright);
+}
 
 @media (max-width: 980px) {
   .services-grid {

@@ -37,6 +37,9 @@ export function Footer() {
             © 2026 RB &amp; Son Transport (Cape). Warehousing, distribution
             &amp; dangerous goods transport.
           </span>
+          <a className="foot-terms" href="/documents/tandc.pdf" target="_blank" rel="noopener noreferrer">
+            Terms &amp; Conditions
+          </a>
         </div>
       </div>
     </footer>

@@ -170,6 +170,13 @@ export function Contact() {
                 <span className="form-status err">{errorMsg}</span>
               )}
             </div>
+            <p className="form-terms-note">
+              By submitting this form you agree to our{" "}
+              <a href="/documents/tandc.pdf" target="_blank" rel="noopener noreferrer">
+                Terms &amp; Conditions
+              </a>
+              .
+            </p>
           </form>
         </Reveal>
       </div>
