@@ -233,7 +233,7 @@ header.scrolled .logo-full {
   border-radius: 3px;
   transition: height 0.25s ease;
 }
-nav.links {
+.links {
   display: flex;
   align-items: center;
   gap: 28px;
@@ -244,7 +244,7 @@ nav.links {
 .nav-cta {
   display: none;
 }
-nav.links a {
+.links a {
   position: relative;
   color: #d7e2d3;
   text-decoration: none;
@@ -253,7 +253,7 @@ nav.links a {
   letter-spacing: 0.01em;
   padding: 4px 0;
 }
-nav.links a::after {
+.links a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -263,11 +263,11 @@ nav.links a::after {
   background: var(--gold-bright);
   transition: right 0.2s ease;
 }
-nav.links a:hover::after,
-nav.links a:focus-visible::after {
+.links a:hover::after,
+.links a:focus-visible::after {
   right: 0;
 }
-nav.links a:hover,
+.links a:hover,
 .btn:focus-visible,
 a:focus-visible,
 button:focus-visible {
@@ -1331,7 +1331,7 @@ footer {
   .header-ctas {
     display: none;
   }
-  nav.links {
+  .links {
     display: flex;
     order: 2;
     flex-basis: 100%;
@@ -1346,18 +1346,18 @@ footer {
       max-height 0.25s ease,
       opacity 0.2s ease;
   }
-  header.nav-open nav.links {
+  header.nav-open .links {
     max-height: 70vh;
     opacity: 1;
     overflow-y: auto;
     border-top: 1px solid rgba(232, 185, 35, 0.15);
   }
-  nav.links a {
+  .links a {
     padding: 16px clamp(20px, 4vw, 48px);
     border-bottom: 1px solid rgba(232, 185, 35, 0.1);
     width: 100%;
   }
-  nav.links a::after {
+  .links a::after {
     display: none;
   }
   .nav-cta {
