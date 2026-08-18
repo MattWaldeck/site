@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { CONTACT } from "@/lib/contact";
 
 const NAV_LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#fleet", label: "Fleet" },
-  { href: "#about", label: "About" },
-  { href: "#routes", label: "Routes" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#fleet", label: "Fleet" },
+  { href: "/#about", label: "About" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/#routes", label: "Routes" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/news", label: "News" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Header() {
